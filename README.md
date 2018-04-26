@@ -1,12 +1,10 @@
 # ftp_hangapp
-Code for description of supposed Camel bug.
-
-This repo contains code for Java application causing hang in Apache Camel.
-Prerequisites:
+## This repo contains code for Java application causing hang in Apache Camel.
+### Prerequisites:
   - newest Apache Camel (2.21);
   - Java 8 or newer (didn't test on older Javas);
   - StreamDownload and stepwise turned on.
-When in happens:
+### When in happens:
   1. We try to download a file with size exceeding InputStream cache (on my pc approx. 1mb is the limit).
   '''InputStream is = this.client.retrieveFileStream(remoteName);''' FtpOperations:373
   2. The server is responding 150 and opening data connection;
