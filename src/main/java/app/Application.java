@@ -13,7 +13,7 @@ public class Application {
         RouteBuilder ftpRoute = new RouteBuilder() {
             @Override
             public void configure() {
-                from("ftp://user_ftp@localhost:21?binary=true&password=password&stepwise=true&streamDownload=true")
+                from("ftp://user_ftp@localhost:21?password=password&stepwise=true&streamDownload=true")
                     .process((Exchange e) -> {
                         System.out.println("Downloading started");
                     })
