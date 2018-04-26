@@ -6,10 +6,16 @@
   - StreamDownload and stepwise turned on.
 ### When in happens:
   1. We try to download a file with size exceeding InputStream cache (on my pc approx. 1mb is the limit).
-  '''InputStream is = this.client.retrieveFileStream(remoteName);''' FtpOperations:373
+  '''java
+  InputStream is = this.client.retrieveFileStream(remoteName);
+  ''' FtpOperations:373
   2. The server is responding 150 and opening data connection;
-  '''[user_ftp] FTP response: Client "127.0.0.1", "150 Opening BINARY mode data connection for x (1048576 bytes)."'''
+  '''
+  [user_ftp] FTP response: Client "127.0.0.1", "150 Opening BINARY mode data connection for x (1048576 bytes)."
+  '''
   3. The data connection does not end because InputStream is waiting for reads and it has not cached whole file (no 2xx response from server).
   4. We try to change directory.
-  '''this.changeCurrentDirectory(currentDir);''' FtpOperations:387
+  '''java
+  this.changeCurrentDirectory(currentDir);
+  ''' FtpOperations:387
   5. Camel hangs as the server is still in the data connection and we are waiting for response from CWD command.  
