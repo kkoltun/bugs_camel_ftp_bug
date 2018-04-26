@@ -9,7 +9,7 @@
   ```java
   InputStream is = this.client.retrieveFileStream(remoteName); \\ FtpOperations:373
   ```
-  2. The server responds 150 and opens data connection;
+  2. The server responds 150 and opens data connection.
   ```
   [user_ftp] FTP response: Client "127.0.0.1", "150 Opening BINARY mode data connection for x (1048576 bytes)."
   ```
